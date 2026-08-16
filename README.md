@@ -6,6 +6,10 @@ This project is my implementation of a **Retrieval-Augmented Generation (RAG)** 
 
 The project is being developed incrementally so that every component and design decision is easy to understand.
 
+## Live Demo:
+
+vercel :https://rag-ai-assistant-ten.vercel.app/
+
 ---
 
 ## Phase 1 Goals
