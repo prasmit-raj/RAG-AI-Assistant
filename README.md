@@ -2,7 +2,7 @@
 
 An AI-powered **Retrieval-Augmented Generation (RAG) application** that allows users to upload and interact with documents through natural-language questions. The system retrieves relevant information from processed documents and uses that context to generate more accurate, context-grounded answers.
 
-Live Demo: https://rag-ai-assistant-ten.vercel.app/
+Live Demo: https://rag-ai-assistant-ten.vercel.app
 
 ## 🚀 Features
 
