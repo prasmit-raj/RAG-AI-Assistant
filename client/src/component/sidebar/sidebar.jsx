@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { PanelLeft ,SquarePen,Search , ChevronDown, ChevronUp,FileText,MessageSquare } from "lucide-react";
 
-function Sidebar() {
-  const [menuOpen, setMenuOpen] = useState(true);
+function Sidebar({ menuOpen: controlledMenuOpen, setMenuOpen: controlledSetMenuOpen, onNewChat }) {
+  const [internalMenuOpen, setInternalMenuOpen] = useState(true);
   const [historyOpen, setHistoryOpen] = useState(true);
+
+  const menuOpen = controlledMenuOpen !== undefined ? controlledMenuOpen : internalMenuOpen;
+  const setMenuOpen = controlledSetMenuOpen || setInternalMenuOpen;
 
   return (
  <nav
-  className={`fixed top-0 left-0 h-screen flex flex-col bg-[#202123] text-white transition-all duration-300 ${
+  className={`fixed top-0 left-0 h-screen z-30 flex flex-col bg-[#171717] border-r border-white/5 text-white transition-all duration-300 ${
     menuOpen ? "w-64" : "w-16"
   }`}
 >
@@ -31,7 +34,10 @@ function Sidebar() {
     <div className="flex flex-col flex-1 px-3">
 
       {/* New Chat */}
-      <button className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-700">
+      <button 
+        onClick={onNewChat}
+        className="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-gray-300 hover:bg-[#2f2f2f] hover:text-white transition-colors cursor-pointer"
+      >
         <SquarePen size={18} />
         <span>New chat</span>
       </button>
@@ -105,7 +111,8 @@ function Sidebar() {
 
   {/* New Chat */}
   <button
-    className="p-2 rounded-lg hover:bg-gray-700"
+    onClick={onNewChat}
+    className="p-2 rounded-lg hover:bg-gray-700 text-gray-300 hover:text-white transition-colors cursor-pointer"
     title="New chat"
   >
     <SquarePen size={22} />
